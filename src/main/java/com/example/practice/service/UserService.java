@@ -41,9 +41,25 @@ public class UserService {
      * 根据id 删除用户
      */
 
-    public void deleteService(int id) {
-        userDao.deleteUser(id);
+    public void deleteService(String name) {
+        userDao.deleteUser(name);
     }
+   /**
+    * delete all
+    * 
+    */ 
+    public void deleteAllService(){
+    	userDao.deleteAll();
+    }
+   /**
+    * find all
+    * 
+    * */
+    public List<User> findAllService(){
+    	return userDao.findAllUser();
+    }
+    
+    
 
     /**
      * 模拟事务。由于加上了 @Transactional注解，如果转账中途出了意外 SnailClimb 和 Daisy 的钱都不会改变。

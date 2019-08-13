@@ -34,9 +34,18 @@ public class UserController {
     }
 
     @RequestMapping("/delete")
-    public String testDelete() {
-        userService.deleteService(3);
+    public User  testDelete() {
+        userService.deleteService("Daisy");
+        return userService.selectUserByName("Daisy");
+    }
+    @RequestMapping("/deleteAll")
+    public String Alldelete() {
+        userService.deleteAllService();
         return "OK";
     }
-
+    @RequestMapping("/findAll")
+    public List<User> findAll() {
+      return  userService.findAllService();
+       
+    }
 }

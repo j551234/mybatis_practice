@@ -38,10 +38,16 @@ public interface UserDao {
                     @Param("id") int id);
 
     /**
-     * 根据 id 删除用户信息
+     * 根据 name 删除用户信息
      */
-    @Delete("DELETE from user WHERE id = #{id}")
-    void deleteUser(@Param("id") int id);
+    @Delete("DELETE from user WHERE name = #{name}")
+    void deleteUser(@Param("name") String name);
     
+    /**
+     * all delete
+     * delete 不能使用*
+     * */
+    @Delete("DELETE from user ")
+    void deleteAll();
     
 }
